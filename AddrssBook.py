@@ -7,42 +7,87 @@
 '''
 
 class AddressBook:
-    
-        def add_contact(self):
-            """
+    def __init__(self):
+        """
             Description:
-                Function is Used for taking Proper input from User with given parameters
+                Function is Used getting values for object of AddressBook
             Parameter:
-                self parameter
+                Object with their specific data type
             Return:
-                Object Create with given parameters
-            """
-            first_name = input('first name: ')
-            last_name = input('lastName: ')
-            address = input('address: ')
-            city = input('city: ')
-            state = input('state: ')
-            zip = input('zip: ')
-            phone = input('phone :')
-            email = input('email: ')   
+                Updated Object as per our arguments
+        """
 
-            return (first_name, last_name, address, city, state, zip, phone, email)
+        self.first_name = " "
+        self.last_name = " "
+        self.address = " "
+        self.city = " "
+        self.state = " "
+        self.zip = " "
+        self.phone = " "
+        self.email = " "
+        self.list=[]
+
+    
+    def add_contact(self):
+        """
+        Description:
+            Function is Used for taking Proper input from User with given parameters
+        Parameter:
+            self parameter
+        Return:
+            Object Create with given parameters
+        """
+        first_name = input('first name: ')
+        self.list.append(first_name)
+        last_name = input('lastName: ')
+        self.list.append(last_name)
+        address = input('address: ')
+        self.list.append(address)
+        city = input('city: ')
+        self.list.append(city)
+        state = input('state: ')
+        self.list.append(state)
+        zip = int(input('zip: '))
+        self.list.append(zip)
+        phone =int( input('phone :'))
+        self.list.append(phone)
+        email = input('email: ') 
+        self.list.append(email)  
+
+
+    def display_contact(self):
+        """
+        Description:
+            Display the list .
+        Parameter:
+            self is as parameter
+        Return:
+            Returning nothing but printing the list.
+        """
+        contact= {}
+        contact_length = len(contact)
+        print(contact_length)
+        contact[contact_length] = self.list
+        print(contact)
+
+    
+
+
+    def main(self):
+        print('Enter 1. To Add Contacts 2. For display a Contact 3.for Exist')
+        while True:
+            choice = int(input('Enter your choice: '))
+            if choice == 1:
+                self.add_contact()
+            elif choice == 2:
+                self.display_contact()
+            elif choice== 3:
+                exit()
+            else:
+                print('Invalid Option. Try Again!')
 
 
 
 if __name__ == "__main__":
     addressBook = AddressBook()
-    contact_list=[] 
-    flag=True
-    while True:
-        cont1=addressBook.add_contact()
-        contact_list.append(cont1)
-        n=int(input("Enter 1 to continue ")) 
-        if n==1:
-            continue
-        if n==0:
-            Flag=False
-
-        print(contact_list)
-
-
+    addressBook.main()
