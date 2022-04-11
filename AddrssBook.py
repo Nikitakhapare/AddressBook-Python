@@ -70,18 +70,34 @@ class AddressBook:
         contact[contact_length] = self.list
         print(contact)
 
-    
+    def edit_contact(self):
+        checkName=input("Enter a Name you want to edit: ")
+        if checkName==self.list[0]:
+        
+            self.list[0]=input('first name: ')
+            self.list[1]=input('last name')
+            self.list[2]=input('address ')
+            self.list[3]=input('city')
+            self.list[4]=input('state ')
+            self.list[5]=int(input('zip'))
+            self.list[6]=int(input('phone'))
+            self.list[7]=input('Email ')
+            
+        else:
+            print("Person does not exist.")
 
 
     def main(self):
-        print('Enter 1. To Add Contacts 2. For display a Contact 3.for Exist')
+        print('Enter 1. To Add Contacts 2. For display a Contact 3. To Edit contact 4.to Exist')
         while True:
             choice = int(input('Enter your choice: '))
             if choice == 1:
                 self.add_contact()
             elif choice == 2:
                 self.display_contact()
-            elif choice== 3:
+            elif choice == 3:
+                self.edit_contact()
+            elif choice== 4:
                 exit()
             else:
                 print('Invalid Option. Try Again!')
@@ -91,3 +107,4 @@ class AddressBook:
 if __name__ == "__main__":
     addressBook = AddressBook()
     addressBook.main()
+
